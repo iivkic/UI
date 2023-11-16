@@ -1,0 +1,37 @@
+
+<div class="container">
+
+  
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()" >
+        <h2 class="mt-3">Unesi ime Studenta</h2>
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+            <mat-label>Ime</mat-label>
+            <input matInput name="FirstName" [(ngModel)]="model.FirstName">
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Prezime</mat-label>
+            <input matInput name="LastName" [(ngModel)]="model.LastName">
+          </mat-form-field></td>
+    
+        </tr></table>
+        <button type="submit" mat-raised-button color="primary">Unesi</button>
+      </form>
+    
+      <div>
+        <div class="mt-5" *ngIf="showSubjects && subNames.length > 0">
+          <h2>Subjects:</h2>
+          <ul>
+            <li *ngFor="let subject of subNames">
+                {{subject.subjectName}}
+            </li>
+          </ul>
+        </div>
+      
+        <!-- Display an empty message if there are no students and the flag is true -->
+        <div class="mt-5" *ngIf="showSubjects && subNames.length === 0">
+          <p>No subjects available.</p>
+        </div>
+      </div>
+      
+    </div>
